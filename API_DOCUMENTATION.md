@@ -1,4 +1,4 @@
-# CS571 F23 hw9 API Documentation
+# CS571 F23 HW9 API Documentation
 
 ## At a Glance
 
