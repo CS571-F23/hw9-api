@@ -118,7 +118,7 @@ If the registration is successful, the following `200` will be sent...
 
 The provided token is an irrevocable JWT that will be valid for **1 hour**. You will need this token in order to create and delete posts.
 
-`eat` specifies the time (as seconds since epoch) when the provided `badgerchat_auth` will expire.
+`eat` specifies the time (as seconds since epoch) when the provided `token` will expire.
 
 If you forget to include a `username` or `password`, the following `400` will be sent...
 
@@ -177,7 +177,7 @@ If the login is successful, the following `200` will be sent...
 
 The provided token is an irrevocable JWT that will be valid for **1 hour**. You will need this token in order to create and delete posts.
 
-`eat` specifies the time (as seconds since epoch) when the provided `badgerchat_auth` will expire.
+`eat` specifies the time (as seconds since epoch) when the provided `token` will expire.
 
 If you forget the `username` or `password`, the following `400` will be sent...
 
@@ -257,7 +257,7 @@ If the `title` is longer than 128 characters or if the `content` is longer than 
 ### Deleting a Message
 `DELETE` `https://cs571.org/api/f23/hw9/messages?id=MESSAGE_ID`
 
-Posting a message is a protected operation; you must have a valid `badgerchat_auth` session. The `MESSAGE_ID` must be specified as a query parameter in the URL.
+The `MESSAGE_ID` must be specified as a query parameter in the URL.
 
 Requests must include a header `Authorization: Bearer JWT_TOKEN` where `JWT_TOKEN` is received from the "login" or "register" endpoints.
 
@@ -316,7 +316,7 @@ If the user is logged in, the following `200` will be sent...
 }
 ```
 
-If the user is not logged in, or has an invalid/expired `badgerchat_auth`, the following `200` will be sent
+If the `Authorization` header is invalid or expired, the following `200` will be sent...
 
 ```json
 {
